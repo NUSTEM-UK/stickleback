@@ -1,0 +1,68 @@
+:root {
+  --bed: #d5dbe0;
+  --panel: #f4f6f7;
+  --panel-edge: #c3cbd2;
+  --ink: #1e2933;
+  --muted: #5d6974;
+  /* --acrylic is set on the app root from the chosen sheet colour */
+  --acrylic: #5cff3a;
+  --acrylic-deep: color-mix(in srgb, var(--acrylic) 55%, #1e2933);
+  /* the laser's honeycomb bed: a light aluminium grey */
+  --bed-surface: #e3e7ea;
+  --bed-dot: rgb(30 41 51 / 0.14);
+  --laser: #e8231a;
+  --accent: #1f5fbf;
+  --warn: #9a4b00;
+  --radius-s: 3px;
+  --radius-m: 6px;
+  --font: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-cond: 'Barlow Semi Condensed', 'Barlow', system-ui, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; }
+
+body {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--bed);
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3 { font-family: var(--font-cond); font-weight: 600; margin: 0; }
+h2 { font-size: 1.05rem; }
+h3 { font-size: 0.95rem; color: var(--muted); font-weight: 500; }
+
+button, input, select { font: inherit; color: inherit; }
+
+button {
+  border: 1px solid var(--panel-edge);
+  background: white;
+  border-radius: var(--radius-s);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+button:hover { border-color: var(--ink); }
+button.primary { background: var(--ink); color: white; border-color: var(--ink); }
+button.primary:hover { background: #33424f; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.link { border: none; background: none; padding: 0.1rem 0.25rem; color: var(--accent); }
+
+input[type='number'], input[type='text'], select {
+  border: 1px solid var(--panel-edge);
+  border-radius: var(--radius-s);
+  padding: 0.25rem 0.4rem;
+  background: white;
+  min-width: 0;
+}
+input[type='number'] { width: 5rem; text-align: right; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
